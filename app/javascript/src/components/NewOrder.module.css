@@ -19,7 +19,17 @@
   display: flex;
   flex-direction: column;
 }
-
+.input {
+  width: 215px;
+  height: 10vh;
+  max-height: 45px;
+  margin-bottom: 10px;
+  align-self: center;
+  text-align: center;
+  user-select: none;
+  outline: none;
+  border: 1px solid #ccc;
+}
 .buttonArea {
   display: flex;
   justify-content: space-between;
@@ -51,4 +61,16 @@
 .color_red {
   background: #f35e61;
   margin-right: 3vw;
+}
+
+.color_amber {
+  background: #fec033;
+}
+
+.color_dark_blue {
+  background: #012a50;
+}
+
+.color_dark_pink {
+  background: #d030ce;
 }

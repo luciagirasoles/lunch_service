@@ -2,14 +2,18 @@ import React from "react";
 import { Router } from "@reach/router";
 import Home from "./views/Home";
 import Chef from "./views/Chef";
+import Waiter from "./views/Waiter";
 import style from "./App.module.css";
-import { useCurrentMenu } from "../redux/action/action-hooks";
+import { useCurrentMenu, useCurrentOrders } from "../redux/action/action-hooks";
 
 export default function App() {
-  const fetchDataSuccess = useCurrentMenu();
+  const fetchDataMenuSuccess = useCurrentMenu();
+  const fetchDataOrdersSucess = useCurrentOrders();
 
   React.useEffect(() => {
-    fetchDataSuccess();
+    fetchDataMenuSuccess();
+    fetchDataOrdersSucess();
+
     // eslint-disable-next-line
   }, []);
 
@@ -17,6 +21,7 @@ export default function App() {
     <Router className={style.main}>
       <Home path="/" />
       <Chef path="/chef" />
+      <Waiter path="/waiter" />
     </Router>
   );
 }

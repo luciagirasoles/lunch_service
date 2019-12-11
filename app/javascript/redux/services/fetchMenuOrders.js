@@ -1,9 +1,9 @@
 const API_FETCH_SELECTED_MENU_URL = "/selected";
 const API_FETCH_ORDERS_URL = "/orders";
+const formatted_data = {};
 import {
   fetchDataBegin,
-  fetchDataMenuSuccess,
-  fetchDataOrdersSuccess,
+  fetchDataSuccess,
   fetchDataError
 } from "../action/index";
 
@@ -38,16 +38,28 @@ function defineInitialMenuData(data = {}) {
   });
   return menu;
 }
+function defineInitialOrderData(orders = []) {
+  const formattedOrders = {};
+  //   1: {id: 2, starter_id: 2, mainCourse_id: 1, beverage_id: 2, status: "received"}
+  orders.forEach(order => {
+    formattedOrders[order.id] = {
+      starter: order.starter_id,
+      mainCourse: order.mainCourse_id,
+      beverage: order.beverage_id
+    };
+  });
 
-export function fetchCurrentMenu() {
+  return formattedOrders;
+}
+
+function fetchMenu() {
   return async dispatch => {
     try {
-      dispatch(fetchDataBegin());
+      console.log("fetchMenu");
       let response = await fetch(API_FETCH_SELECTED_MENU_URL);
       if (!response.ok) throw await createError(response);
       const data = await response.json();
-      const editedData = defineInitialMenuData(data);
-      dispatch(fetchDataMenuSuccess(editedData));
+      formatted_data["menu"] = defineInitialMenuData(data);
     } catch (error) {
       console.log("error fetching Menu initial data:  ", error);
       dispatch(fetchDataError(error));
@@ -55,34 +67,33 @@ export function fetchCurrentMenu() {
   };
 }
 
-function defineInitialOrderData(orders = []) {
-  const formattedOrders = {};
-  //   1: {id: 2, starter_id: 2, mainCourse_id: 1, beverage_id: 2, status: "received"}
-  orders.forEach(order => {
-    formattedOrders[order.id] = {
-      id: order.id,
-      starter: { id: order.starter_id, name: order.starter.name },
-      mainCourse: { id: order.mainCourse_id, name: order.mainCourse.name },
-      beverage: { id: order.beverage_id, name: order.beverage.name },
-      status: order.status
-    };
-  });
-
-  return formattedOrders;
-}
-
-export function fetchCurrentOrders() {
+function fetchOrders() {
   return async dispatch => {
     try {
-      dispatch(fetchDataBegin());
+      console.log("fetchOrders");
       let response = await fetch(API_FETCH_ORDERS_URL);
       if (!response.ok) throw await createError(response);
       const data = await response.json();
-      const editedData = defineInitialOrderData(data);
-      dispatch(fetchDataOrdersSuccess(editedData));
+      formatted_data["orders"] = defineInitialOrderData(data);
     } catch (error) {
       console.log("error fetching Orders initial data:  ", error);
       dispatch(fetchDataError(error));
     }
   };
 }
+
+// export default function fetchMenuOrders() {
+//   return async dispatch => {
+//     try {
+//       dispatch(fetchDataBegin());
+//       let response = await fetch(API_FETCH_SELECTED_MENU_URL);
+//       if (!response.ok) throw await createError(response);
+//       const data = await response.json();
+//       const editedData = defineInitialData(data);
+//       dispatch(fetchDataSuccess(editedData));
+//     } catch (error) {
+//       console.log("error fetching initial data:  ", error);
+//       dispatch(fetchDataError(error));
+//     }
+//   };
+// }

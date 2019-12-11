@@ -1,0 +1,26 @@
+.main {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  position: fixed;
+  left: 0;
+  margin: 10px;
+  border-radius: 50%;
+  padding: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #dddddd 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.image:active,
+.image:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+}
+.title {
+  margin-top: 30px;
+}

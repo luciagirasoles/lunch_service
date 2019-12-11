@@ -15,10 +15,24 @@ function fetchDataError(error) {
   };
 }
 
-function fetchDataSuccess(dataFetch) {
+function fetchDataMenuSuccess(dataFetch) {
   return {
-    type: "FETCH_DATA_SUCCESS",
+    type: "FETCH_DATA_MENU_SUCCESS",
     payload: { dataFetch }
+  };
+}
+
+function fetchDataOrdersSuccess(dataFetch) {
+  return {
+    type: "FETCH_DATA_ORDERS_SUCCESS",
+    payload: { dataFetch }
+  };
+}
+
+function saveOrder(updatedOrders) {
+  return {
+    type: "SAVE_ORDER",
+    payload: { updatedOrders }
   };
 }
 
@@ -29,4 +43,12 @@ function updateMenu(newMenu) {
   };
 }
 
-export { reset, fetchDataBegin, fetchDataSuccess, fetchDataError, updateMenu };
+export {
+  reset,
+  fetchDataBegin,
+  fetchDataMenuSuccess,
+  fetchDataOrdersSuccess,
+  fetchDataError,
+  saveOrder,
+  updateMenu
+};

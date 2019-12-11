@@ -1,7 +1,7 @@
 .main {
   position: fixed;
   bottom: 0;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .button {
   border-radius: 8px;
@@ -21,4 +21,12 @@
 
 .color_green {
   background: #4ea64e;
+}
+
+.color_sky {
+  background: #36dded;
+}
+
+.color_blue {
+  background: #4e58de;
 }
