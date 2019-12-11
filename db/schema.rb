@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2019_12_08_234624) do
   end
 
   create_table "starters", force: :cascade do |t|
-    t.string "name", default: "f"
-    t.boolean "selected"
+    t.string "name"
+    t.boolean "selected", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
