@@ -40,10 +40,7 @@
   justify-content: center;
   align-items: center;
 }
-.p {
-  margin: 0;
-  font-size: 12px;
-}
+
 .title {
   margin-top: 20px;
   word-spacing: 10000000px;
@@ -91,20 +88,8 @@
   background: #fec033;
 }
 
-.color_dark_blue {
-  background: #012a50;
+.noOrders {
+  display: flex;
+  height: 60vh;
+  align-items: center;
 }
-
-.color_dark_pink {
-  background: #d030ce;
-}
-
-/* #00ddff sky */
-
-/* #0081fe blue */
-
-/* #012a50 azulmarino */
-/* #fec033 amber */
-/* #f90065 red */
-
-/* #d030ce pink oscuro */

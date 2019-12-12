@@ -94,10 +94,15 @@ export default function SelectMenu({ handleCloseModal }) {
             break;
 
           case "beverage":
-            if (!!currentMenu[type].id) {
-              submitBeverage({ id: currentMenu[type].id, selected: false });
+            if (!!currentMenu.beverage.id) {
+              submitBeverage({
+                id: currentMenu.beverage.id,
+                selected: false
+              });
             }
-            submitBeverage({ id: chefOption[type].id, selected: true });
+            setTimeout(() => {
+              submitBeverage({ id: chefOption.beverage.id, selected: true });
+            }, 1000);
             break;
         }
 
