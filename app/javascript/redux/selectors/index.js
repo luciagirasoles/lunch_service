@@ -8,5 +8,27 @@ function useMenu() {
     }
   }, shallowEqual);
 }
+function useOrdersReceived() {
+  return useSelector(state => {
+    if (state.orders) {
+      return Object.values(state.orders).filter(order => {
+        return order.status === "received";
+      });
+    } else {
+      return {};
+    }
+  }, shallowEqual);
+}
 
-export { useMenu };
+function useOrdersReady() {
+  return useSelector(state => {
+    if (state.orders) {
+      return Object.values(state.orders).filter(order => {
+        return order.status === "ready";
+      });
+    } else {
+      return {};
+    }
+  }, shallowEqual);
+}
+export { useMenu, useOrdersReceived, useOrdersReady };

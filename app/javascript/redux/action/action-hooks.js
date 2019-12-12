@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { reset, updateMenu } from "./index";
-import fetchCurrentMenu from "../services/index";
+import { fetchCurrentMenu, fetchCurrentOrders } from "../services/index";
+import saveOrder from "../services/saveOrder";
 
 export function useUpdateMenu() {
   const dispatch = useDispatch();
@@ -12,6 +13,17 @@ export function useUpdateMenu() {
 export function useCurrentMenu() {
   const dispatch = useDispatch();
   return React.useCallback(() => dispatch(fetchCurrentMenu(), [dispatch]));
+}
+export function useCurrentOrders() {
+  const dispatch = useDispatch();
+  return React.useCallback(() => dispatch(fetchCurrentOrders(), [dispatch]));
+}
+
+export function useSaveOrder() {
+  const dispatch = useDispatch();
+  return React.useCallback(newOrder =>
+    dispatch(saveOrder(newOrder), [dispatch])
+  );
 }
 
 export function useReset() {

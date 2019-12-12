@@ -32,9 +32,6 @@ export default function SelectMenu({ handleCloseModal }) {
     }
     getDishes();
   }, []);
-  // React.useEffect(() => {
-  //   console.log(chefOption);
-  // }, [chefOption]);
 
   function handleChange(event) {
     let currentName = "";
@@ -122,7 +119,6 @@ export default function SelectMenu({ handleCloseModal }) {
             name="starter1"
             onChange={handleChange}
             value={chefOption.starter1.id}
-            dishname={chefOption.starter1.name}
             required
           >
             <option value="" hidden>
@@ -149,7 +145,6 @@ export default function SelectMenu({ handleCloseModal }) {
             name="starter2"
             onChange={handleChange}
             value={chefOption.starter2.id}
-            dishname={chefOption.starter2.name}
             required
           >
             <option value="" hidden>
@@ -176,7 +171,6 @@ export default function SelectMenu({ handleCloseModal }) {
             name="mainCourse1"
             onChange={handleChange}
             value={chefOption.mainCourse1.id}
-            dishname={chefOption.mainCourse1.name}
             required
           >
             <option value="" hidden>
@@ -203,7 +197,6 @@ export default function SelectMenu({ handleCloseModal }) {
             name="mainCourse2"
             onChange={handleChange}
             value={chefOption.mainCourse2.id}
-            dishname={chefOption.mainCourse2.name}
             required
           >
             <option value="" hidden>
@@ -230,7 +223,6 @@ export default function SelectMenu({ handleCloseModal }) {
             name="beverage"
             onChange={handleChange}
             value={chefOption.beverage.id}
-            dishname={chefOption.beverage.name}
             required
           >
             <option value="" hidden>

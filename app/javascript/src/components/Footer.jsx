@@ -2,8 +2,9 @@ import React from "react";
 import Modal from "./Modal";
 import style from "./Footer.module.css";
 import SelectMenu from "./SelectMenu";
+import NewOrder from "./NewOrder";
 
-export default function Footer() {
+export default function Footer({ role }) {
   const [showModal, setShowModal] = React.useState(false);
   const openModal = () => {
     setShowModal(true);
@@ -15,14 +16,17 @@ export default function Footer() {
   return (
     <div className={style.main}>
       <button
-        className={`${style.button} ${style.color_green}`}
+        className={`${style.button} ${
+          role === "chef" ? style.color_sky : style.color_blue
+        }`}
         onClick={openModal}
       >
-        Definir menu del dia
+        {role === "chef" ? "Definir menu del dia" : "Registrar orden"}
       </button>
       {showModal && (
         <Modal>
-          <SelectMenu handleCloseModal={closeModal} />
+          {role === "chef" && <SelectMenu handleCloseModal={closeModal} />}
+          {role === "waiter" && <NewOrder handleCloseModal={closeModal} />}
         </Modal>
       )}
     </div>
