@@ -4,21 +4,17 @@ import style from "./Waiter.module.css";
 import iconHome from "../images/home.svg";
 import { navigate } from "@reach/router";
 import { useOrdersReady } from "../../redux/selectors/index";
-import Modal from "../components/Modal";
+import { useUpdateOrder } from "../../redux/action/action-hooks";
 
 export default function Waiter() {
-  const [showModal, setShowModal] = React.useState(false);
-  const openModal = () => {
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
   const orders = useOrdersReady();
+  const updateStatusOrder = useUpdateOrder();
   function handleOnclick(event) {
-    console.dir(event.target);
-    console.log(event.target.parentNode);
+    console.log(event.target.parentNode.id);
+    updateStatusOrder({
+      id: parseInt(event.target.parentNode.id),
+      status: "delivered"
+    });
   }
   return (
     <div className={style.main}>
@@ -39,36 +35,24 @@ export default function Waiter() {
           {Object.values(orders).map(order => {
             return (
               <section
-                key={order.id.toString()}
+                id={order.id}
+                key={order.id}
                 className={`${style.card} ${style.color_amber}`}
               >
                 <h5>#0{order.id}</h5>
                 <p>{`entrada: ${order.starter.name}`}</p>
                 <p>{`segundo: ${order.mainCourse.name}`}</p>
                 <p>{`bebida: ${order.beverage.name}`}</p>
-                <UpdateButton orderId={order.id} onClick={openModal} />
+                <button onClick={handleOnclick}>Entregado</button>
               </section>
             );
           })}
         </div>
       ) : (
-        <p>Sin ordenes para entregar</p>
-      )}
-      {showModal && (
-        <Modal>
-          <h3>{`La orden 0${order} `}</h3>
-        </Modal>
+        <p className={style.noOrders}>Sin ordenes para entregar</p>
       )}
 
       <Footer role="waiter" />
     </div>
-  );
-}
-
-function UpdateButton({ orderId, closeModal }) {
-  return (
-    <>
-      <button onClick={handleOnclick}>Entregado</button>
-    </>
   );
 }

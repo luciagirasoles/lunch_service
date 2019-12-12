@@ -32,6 +32,11 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         orders: { ...action.payload.updatedOrders }
       };
+    case "UPDATE_ORDER":
+      return {
+        ...state,
+        orders: { ...action.payload.orders }
+      };
     case "UPDATE_MENU":
       return { ...state, menu: action.payload.newMenu };
     default: {

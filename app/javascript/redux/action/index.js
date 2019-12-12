@@ -42,6 +42,12 @@ function updateMenu(newMenu) {
     payload: { newMenu }
   };
 }
+function updateOrder(orders) {
+  return {
+    type: "UPDATE_ORDER",
+    payload: { orders }
+  };
+}
 
 export {
   reset,
@@ -50,5 +56,6 @@ export {
   fetchDataOrdersSuccess,
   fetchDataError,
   saveOrder,
-  updateMenu
+  updateMenu,
+  updateOrder
 };
