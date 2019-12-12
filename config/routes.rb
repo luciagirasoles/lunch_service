@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :beverages, only: [:index, :update]
   resources :main_courses, only: [:index, :update]
   resources :starters, only: [:index, :update]
+  resources :orders, only: [:index, :show, :create, :update]
   
-
   get "*path", to: "home#index", constraints: { format: "html" }
 end
