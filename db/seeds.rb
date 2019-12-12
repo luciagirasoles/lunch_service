@@ -19,7 +19,7 @@ Starter.create(name: "Tequeños de Queso con Salsa Guacamole")
 Starter.create(name: "Aguadito")
 
 mainCourse1 = MainCourse.create(name: "Tallarines al Pesto con Bisteck", selected: true)
-beverage2 = MainCourse.create(name: "Lomo Saltado a lo Pobre")
+mainCourse2 = MainCourse.create(name: "Lomo Saltado a lo Pobre")
 MainCourse.create(name: "Pollo a la Plancha con Ensalada")
 MainCourse.create(name: "Locro de Zapallo con Huevo Frito")
 MainCourse.create(name: "Arroz Chaufa")
