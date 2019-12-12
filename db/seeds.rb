@@ -12,7 +12,7 @@ Beverage.create(name: "Hierba Luisa")
 Beverage.create(name: "Manzanilla")
 
 starter1 = Starter.create(name: "Yuquitas con salsa de Rocoto", selected: true)
-beverage2 = Starter.create(name: "Ensalada Fresca", selected: true)
+starter2 = Starter.create(name: "Ensalada Fresca", selected: true)
 Starter.create(name: "Ceviche")
 Starter.create(name: "Chicharrón de Pescado")
 Starter.create(name: "Tequeños de Queso con Salsa Guacamole")
