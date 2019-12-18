@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { reset, updateMenu } from "./index";
+import { reset, updateMenu } from "./actions";
 import { fetchCurrentMenu, fetchCurrentOrders } from "../services/index";
 import saveOrder from "../services/saveOrder";
 import updateOrder from "../services/updateOrder";

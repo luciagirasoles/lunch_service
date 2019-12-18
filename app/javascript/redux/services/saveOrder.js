@@ -1,6 +1,6 @@
 const API_POST_ORDER_URL = "/orders";
 
-import { saveOrder } from "../action/index";
+import { saveOrder } from "../action/actions";
 
 async function createError(response) {
   const { errors } = await response.json();

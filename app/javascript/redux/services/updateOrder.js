@@ -1,6 +1,6 @@
 const API_PATCH_ORDER_URL = "/orders";
 
-import { updateOrder } from "../action/index";
+import { updateOrder } from "../action/actions";
 
 async function createError(response) {
   const { errors } = await response.json();
