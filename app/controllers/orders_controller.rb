@@ -5,8 +5,14 @@ class OrdersController < ApplicationController
     end
 
     def create
-    Order.create(create_orders_params)
-    render json: Order.in_process.to_json(only: [:id,:starter_id,:mainCourse_id,:beverage_id, :status], include: { beverage: { only: :name } ,mainCourse: { only: :name}, starter: {only: :name} }), status: :ok
+        @order = Order.new(create_orders_params)  
+    if @order.save
+        ActionCable.server.broadcast 'order_channel', content: @order.to_json(only: [:id,:starter_id,:mainCourse_id,:beverage_id, :status], include: { beverage: { only: :name } ,mainCourse: { only: :name}, starter: {only: :name} }) 
+        render json:{},status: :created
+    else 
+        render json: @order.errors, status: :unprocessable_entity 
+    end
+
     end
 
     def show

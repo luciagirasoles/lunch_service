@@ -1,11 +1,10 @@
 import React from "react";
 import style from "./NewOrder.module.css";
 import { useMenu } from "../../redux/selectors/index";
-import { useSaveOrder } from "../../redux/action/action-hooks";
+import sendNewOrder from "../utils/saveOrder";
 
 export default function NewOrder({ handleCloseModal }) {
   const currentMenu = useMenu();
-  const saveOrder = useSaveOrder();
   const userOrder = {
     starter: "",
     mainCourse: "",
@@ -47,7 +46,7 @@ export default function NewOrder({ handleCloseModal }) {
   function handleSubmit() {
     event.preventDefault();
     userOrder.beverage = { ...currentMenu.beverage };
-    saveOrder({
+    sendNewOrder({
       beverage: userOrder.beverage.id,
       mainCourse: userOrder.mainCourse.id,
       starter: userOrder.starter.id

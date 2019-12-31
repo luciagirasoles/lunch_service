@@ -46,7 +46,7 @@ async function fetchMainCourses() {
     const data = await response.json();
     mainCourse = [...data];
   } catch (error) {
-    console.log("error fetching beverage data:  ", error);
+    console.log("error fetching fetch Main Courses data:  ", error);
   }
 
   return mainCourse;
