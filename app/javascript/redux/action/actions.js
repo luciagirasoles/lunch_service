@@ -29,10 +29,10 @@ function fetchDataOrdersSuccess(dataFetch) {
   };
 }
 
-function saveOrder(updatedOrders) {
+function fetchNewOrder(newOrder) {
   return {
     type: "SAVE_ORDER",
-    payload: { updatedOrders }
+    payload: { newOrder }
   };
 }
 
@@ -55,7 +55,7 @@ export {
   fetchDataMenuSuccess,
   fetchDataOrdersSuccess,
   fetchDataError,
-  saveOrder,
+  fetchNewOrder,
   updateMenu,
   updateOrder
 };

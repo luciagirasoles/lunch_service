@@ -1,6 +1,6 @@
+require("channels");
 import React from "react";
 import ReactDOM from "react-dom";
-
 import App from "../src/App";
 import { Provider } from "react-redux";
 

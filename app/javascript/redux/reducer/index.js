@@ -30,7 +30,10 @@ export default function reducer(state = initialState, action = {}) {
     case "SAVE_ORDER":
       return {
         ...state,
-        orders: { ...action.payload.updatedOrders }
+        orders: {
+          ...state.orders,
+          [action.payload.newOrder.id]: { ...action.payload.newOrder }
+        }
       };
     case "UPDATE_ORDER":
       return {

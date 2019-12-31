@@ -5,7 +5,7 @@ import {
   fetchDataMenuSuccess,
   fetchDataOrdersSuccess,
   fetchDataError
-} from "../action/index";
+} from "../action/actions";
 
 async function createError(response) {
   const { errors } = await response.json();

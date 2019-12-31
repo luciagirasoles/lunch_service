@@ -10,7 +10,7 @@ export default function Chef() {
   const orders = useOrdersReceived();
   const updateStatusOrder = useUpdateOrder();
   function handleOnclick(event) {
-    console.log(event.target.parentNode.id);
+    // console.log(event.target.parentNode.id);
     updateStatusOrder({
       id: parseInt(event.target.parentNode.id),
       status: "ready"
