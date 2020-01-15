@@ -1,0 +1,12 @@
+{
+  "name": "lunch-service",
+  "description": "A service to register order in real time using Rails with Action Cable",
+  "success_url": "/",
+  "env": {},
+  "addons": ["heroku-postgresql", "heroku-redis"],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
