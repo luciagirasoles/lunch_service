@@ -100,10 +100,7 @@ export default function SelectMenu({ handleCloseModal }) {
                 selected: false
               });
             }
-            setTimeout(() => {
-              submitBeverage({ id: chefOption.beverage.id, selected: true });
-            }, 1000);
-            break;
+            submitBeverage({ id: chefOption.beverage.id, selected: true });
         }
 
         updateMenu(chefOption);

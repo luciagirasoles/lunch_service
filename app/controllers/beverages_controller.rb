@@ -4,9 +4,11 @@ class BeveragesController < ApplicationController
     end
 
     def update
-        beverage = Beverage.find(params[:id])
+        Beverage.transaction do
+        beverage = Beverage.lock.find(params[:id])
         beverage.update(beverage_params)
         render json: beverage.to_json(only: [:id, :name, :selected])
+        end
     end
 
     def selected
